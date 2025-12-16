@@ -1,4 +1,4 @@
-# Praktikum 11 – PHP OOP Lanjutan (Framework Modular & Routing)
+# Praktikum 11 – Autentikasi dan Session di project lab11_php_oop
 
 - **Nama**  : _Anggriani Hermawan_  
 - **NIM**   : _312410175_  
@@ -11,9 +11,9 @@
 ### 1.1. Membuat folder project
 
 - Membuat folder `lab11_php_oop` di dalam `htdocs` XAMPP.  
-- Struktur awal hanya berisi folder kosong `class`, `module`, `template`, dan file `index.php`, `config.php`.  
- 
-<img width="128" height="231" alt="image" src="https://github.com/user-attachments/assets/3b2e6404-c4c5-4261-809f-c5204c2da9aa" />
+- Struktur awal hanya berisi folder kosong `class`, `module`, `template`, `modul` dan file `index.php`, `config.php`.  
+- Menambahkan folder baru yaitu `modul`
+<img width="156" height="291" alt="image" src="https://github.com/user-attachments/assets/2a206521-3962-43d9-afc1-dfd54b009725" />
 
 ### 1.2. Membuat konfigurasi database (config.php)
 
