@@ -12,8 +12,8 @@
 
 - Membuat folder `lab11_php_oop` di dalam `htdocs` XAMPP.  
 - Struktur awal hanya berisi folder kosong `class`, `module`, `template`, `modul` dan file `index.php`, `config.php`.  
-- Menambahkan folder baru yaitu `
-<img width="156" height="291" alt="image" src="https://github.com/user-attachments/assets/2a206521-3962-43d9-afc1-dfd54b009725" />
+- Menambahkan folder baru 
+<img width="154" height="352" alt="image" src="https://github.com/user-attachments/assets/cbacb7dd-08f2-443e-97ee-1e47f9e9eb8c" />
 
 ### 1.2. Membuat konfigurasi database (config.php)
 
@@ -551,8 +551,6 @@ setelah dirubah artikel nya
 - Di dalamnya terdapat:
   - `login.php` – form login user dan proses autentikasi.  
   - `logout.php` – proses logout user dan penghapusan session.
-
- ---
  
 ### 5.2. Halaman User (module/user/login.php)
 
@@ -654,9 +652,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 menampilkan langsung ke halaman index
 <img width="957" height="522" alt="Cuplikan layar 2025-12-23 110816" src="https://github.com/user-attachments/assets/9cda656c-afa6-4dc9-a743-2354af42ba35" />
 
----
+## 5.3. Script Pembuatan User Admin (buat_user.php)
+- Meng‑include `config.php` dan `class/Database.php`, lalu membuat objek Database untuk terhubung ke database.\
+- Menentukan data user admin baru di variabel: `username = 'admin', password_plain = '123456', dan nama = 'Administrator'`.
+- Meng‑hash password teks biasa dengan fungsi `password_hash()` sebelum disimpan ke tabel users untuk alasan keamanan.
+- Menghapus seluruh data user lama di tabel users dengan perintah `TRUNCATE TABLE users`.
+- Menyimpan user admin baru ke database menggunakan query `INSERT INTO users (username, password, nama) VALUES (...)`.
+- Menampilkan pesan di browser: "User baru dibuat. Username: admin, Password: 123456" sebagai konfirmasi bahwa user admin berhasil dibuat dan bisa dipakai untuk login.
+```
+<?php
+require 'config.php';
+require 'class/Database.php';
 
-### 5.3. Halaman User (module/user/logout.php)
+$db = new Database();
+
+// password yang kamu mau
+$username = 'admin';
+$password_plain = '123456';   // nanti login pakai ini
+$nama = 'Administrator';
+
+// buat hash dari password_plain
+$hash = password_hash($password_plain, PASSWORD_DEFAULT);
+
+// hapus user lama
+$db->query("TRUNCATE TABLE users");
+
+// insert user baru
+$sql = "INSERT INTO users (username, password, nama)
+        VALUES ('{$username}', '{$hash}', '{$nama}')";
+$db->query($sql);
+
+echo "User baru dibuat. Username: {$username}, Password: {$password_plain}";
+```
+
+### 5.4. Halaman User (module/user/logout.php)
 
 - Menghapus seluruh data session dengan `session_destroy()`.
 - Setelah logout, pengguna diarahkan kembali ke halaman login `(/user/login)`.
