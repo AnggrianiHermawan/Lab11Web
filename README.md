@@ -718,7 +718,7 @@ exit;
 - Membuka tabel `artikel` dan klik tab **Jelajahi**.  
 - Setelah menyimpan data dari aplikasi, baris baru dengan kolom `id`, `judul`, dan `isi` akan muncul.  
 
-<img width="388" height="152" alt="image" src="https://github.com/user-attachments/assets/ef18c4c8-daa3-4d9a-a57b-26e9eb3e4c41" />
+<img width="399" height="74" alt="Cuplikan layar 2025-12-23 120922" src="https://github.com/user-attachments/assets/716a231b-e52e-439e-9a89-4127e8cf2976" />
 
 ---
 
